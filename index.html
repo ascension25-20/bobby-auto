@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bobby & Co. - Premium Automobile Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #003366;
+            --secondary-blue: #0066cc;
+            --dark-black: #121212;
+            --light-black: #1e1e1e;
+            --accent-orange: #ff9900;
+            --text-light: #f5f5f5;
+            --text-gray: #cccccc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-black);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-orange);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--accent-orange);
+            color: var(--dark-black);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: #e68a00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-orange);
+            color: var(--accent-orange);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-orange);
+            color: var(--dark-black);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-black));
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--dark-black);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+        
+        .logo-text span {
+            color: var(--accent-orange);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-orange);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--accent-orange);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-orange);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .section-title p {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light-black);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-bottom-color: var(--accent-orange);
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        /* Brands Section */
+        .brands {
+            background-color: var(--primary-blue);
+            padding: 80px 0;
+        }
+        
+        .brands-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .brands-title h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .brands-title p {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .brand-item {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .brand-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .brand-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 60px;
+        }
+        
+        /* Appointment Section */
+        .appointment {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1583&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .appointment h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .appointment p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-gray);
+        }
+        
+        .appointment-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light-black);
+            padding: 100px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--dark-black);
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--accent-orange);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-orange);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links li a {
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-orange);
+            color: var(--dark-black);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Payment Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--light-black);
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent-orange);
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .payment-method i {
+            font-size: 24px;
+        }
+        
+        .payment-method.active {
+            border: 1px solid var(--accent-orange);
+            background-color: rgba(255, 153, 0, 0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-blue);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .appointment-form {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">B</div>
+                <div class="logo-text">Bobby & <span>Co</span></div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#brands">Brands</a></li>
+                    <li><a href="#appointment">Appointment</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#" id="paymentBtn">Payments</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Auto Care <span>Redefined</span></h1>
+                <p>At Bobby & Co., we combine cutting-edge technology with expert craftsmanship to deliver unparalleled automobile services for all vehicle brands.</p>
+                <div class="hero-btns">
+                    <a href="#appointment" class="btn">Book Appointment</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of automotive services to keep your vehicle running at its best.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>General Maintenance</h3>
+                    <p>Regular maintenance to keep your vehicle in top condition and prevent costly repairs.</p>
+                    <a href="#appointment" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Engine Repair</h3>
+                    <p>Expert diagnosis and repair of all engine issues, from minor adjustments to complete overhauls.</p>
+                    <a href="#appointment" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electrical Systems</h3>
+                    <p>Comprehensive electrical system services including diagnostics, repairs, and upgrades.</p>
+                    <a href="#appointment" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Oil Change</h3>
+                    <p>Quick and efficient oil changes with premium quality oils and filters for optimal engine performance.</p>
+                    <a href="#appointment" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3>Tire Services</h3>
+                    <p>Complete tire services including rotation, balancing, alignment, and premium tire sales.</p>
+                    <a href="#appointment" class="btn btn-outline">Book Now</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3>Body Repair</h3>
+                    <p>Professional auto body repair and painting services to restore your vehicle's appearance.</p>
+                    <a href="#appointment" class="btn btn-outline">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <div class="brands-title">
+                <h2>We Service All Major Brands</h2>
+                <p>Our technicians are certified to work on vehicles from all major manufacturers worldwide.</p>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <img src="BMW logo.jpg">
+                </div>
+                <div class="brand-item">
+                    <img src="Mercedes  logo.jpg">
+                </div>
+                <div class="brand-item">
+                    <img src="audi logo.jpg">
+                </div>
+                <div class="brand-item">
+                    <img src="toyota logo.jpg" alt="Toyota">
+                </div>
+                <div class="brand-item">
+                    <img src="honda logo.jpg">
+                </div>
+                <div class="brand-item">
+                    <img src="ford logo.jpg">
+                </div>
+                <div class="brand-item">
+                    <img src="volkswagen logo.jpg" alt="Volkswagen">
+                </div>
+                <div class="brand-item">
+                    <img src="lexus logo.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment" id="appointment">
+        <div class="container">
+            <h2>Book An Appointment</h2>
+            <p>Schedule your service appointment online and we'll confirm your booking within 24 hours.</p>
+            <form class="appointment-form" id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle">Vehicle Make & Model</label>
+                    <input type="text" id="vehicle" name="vehicle" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Required</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="maintenance">General Maintenance</option>
+                        <option value="engine">Engine Repair</option>
+                        <option value="electrical">Electrical Systems</option>
+                        <option value="oil">Oil Change</option>
+                        <option value="tires">Tire Services</option>
+                        <option value="body">Body Repair</option>
+                        <option value="other">Other Service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Notes</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn">Book Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear what our satisfied customers have to say about their experience.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Bobby & Co. has been servicing my cars for over 5 years. Their attention to detail and honest approach to repairs keeps me coming back. I wouldn't trust my luxury vehicles with anyone else.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>James Wilson</h4>
+                            <p>Mercedes GLE Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>After a bad experience at another shop, I was hesitant but needed my transmission fixed. The team at Bobby & Co. diagnosed the real issue quickly and saved me thousands compared to the first estimate I got.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Honda Accord Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>As a classic car collector, I need mechanics who understand older vehicles. Bobby's team restored my 1967 Mustang to better-than-factory condition. Their craftsmanship is truly exceptional.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Classic Car Collector</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Bobby & Co. has been providing premium automotive services since 2005. Our mission is to deliver honest, high-quality work with exceptional customer service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#brands">Brands</a></li>
+                        <li><a href="#appointment">Appointment</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">General Maintenance</a></li>
+                        <li><a href="#">Engine Repair</a></li>
+                        <li><a href="#">Electrical Systems</a></li>
+                        <li><a href="#">Oil Changes</a></li>
+                        <li><a href="#">Tire Services</a></li>
+                        <li><a href="#">Body Repair</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Auto Street, Motor City, MC 12345</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@bobbyandco.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8AM - 6PM<br>Sat: 9AM - 4PM<br>Sun: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bobby & Co. Automobile Workshop. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Make a Payment</h2>
+            <p>Pay for your services securely online. Enter your invoice number and payment details below.</p>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="invoice">Invoice Number</label>
+                    <input type="text" id="invoice" name="invoice" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount ($)</label>
+                    <input type="number" id="amount" name="amount" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="payment-methods">
+                        <div class="payment-method" data-method="credit">
+                            <i class="far fa-credit-card"></i>
+                            <span>Credit/Debit Card</span>
+                        </div>
+                        <div class="payment-method" data-method="paypal">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="payment-method" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <span>Bank Transfer</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="paymentMethod" name="paymentMethod" required>
+                </div>
+                <button type="submit" class="btn">Process Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Backend Integration Script -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.id === 'paymentBtn') {
+                    document.getElementById('paymentModal').style.display = 'block';
+                    return;
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Payment Modal
+        const paymentModal = document.getElementById('paymentModal');
+        const paymentBtn = document.getElementById('paymentBtn');
+        const closeModal = document.getElementById('closeModal');
+        
+        paymentBtn.addEventListener('click', () => {
+            paymentModal.style.display = 'block';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            paymentModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        });
+        
+        // Payment Method Selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const paymentMethodInput = document.getElementById('paymentMethod');
+        
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                method.classList.add('active');
+                paymentMethodInput.value = method.dataset.method;
+            });
+        });
+        
+        // Form Submissions (would connect to backend in production)
+        document.getElementById('appointmentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Appointment request submitted! We will contact you shortly to confirm.');
+            e.target.reset();
+        });
+        
+        document.getElementById('paymentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Payment processed successfully! Thank you for your business.');
+            e.target.reset();
+            paymentModal.style.display = 'none';
+        });
+        
+        // Database Integration Placeholder
+        // In a real implementation, this would connect to a backend API
+        class VehicleDatabase {
+            constructor() {
+                // Simulated database
+                this.vehicles = [];
+            }
+            
+            addVehicle(vehicleData) {
+                // This would be an API call in production
+                vehicleData.id = Date.now().toString();
+                this.vehicles.push(vehicleData);
+                return vehicleData;
+            }
+            
+            getVehicles() {
+                // API call simulation
+                return this.vehicles;
+            }
+            
+            getVehicleById(id) {
+                return this.vehicles.find(v => v.id === id);
+            }
+        }
+        
+        // Initialize the database
+        const vehicleDB = new VehicleDatabase();
+        
+        // Example usage:
+        // vehicleDB.addVehicle({
+        //     make: 'Toyota',
+        //     model: 'Camry',
+        //     year: 2020,
+        //     owner: 'John Doe',
+        //     serviceHistory: []
+        // });
+    </script>
+</body>
+</html>
